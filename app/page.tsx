@@ -75,9 +75,9 @@ export default function Home() {
             className="mt-6 text-lg leading-8 text-slate-600 sm:text-xl"
             variants={itemVariants}
           >
-            We deliver cutting-edge solutions in AI content creation, automation,
-            SaaS development, and web applications to help your business thrive
-            in the digital age.
+            We deliver cutting-edge solutions in AI content creation,
+            automation, SaaS development, and web applications to help your
+            business thrive in the digital age.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"

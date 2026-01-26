@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { AnimatedBackground } from "../components/AnimatedBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +30,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} min-h-screen bg-stone-50 font-sans text-slate-900 antialiased`}
       >
-        <div className="min-h-screen flex flex-col">
+        <AnimatedBackground />
+        <div className="relative min-h-screen flex flex-col">
           <Navbar />
           <div className="flex-1">{children}</div>
           <Footer />
