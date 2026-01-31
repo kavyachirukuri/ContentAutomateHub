@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-slate-600">
           © {new Date().getFullYear()}{" "}
-          <span className="font-medium text-slate-900">Padma Desireddy</span>. All
+          <span className="font-medium text-slate-900">SynkraAI</span>. All
           rights reserved.
         </p>
         <div className="flex items-center gap-5">
@@ -27,4 +27,3 @@ export function Footer() {
     </footer>
   );
 }
-

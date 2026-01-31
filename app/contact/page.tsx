@@ -111,6 +111,12 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-slate-600">
                 Send us an email and we'll respond within 24 hours
               </p>
+              <a
+                href="mailto:padmadesireddy36@gmail.com"
+                className="mt-2 inline-block text-sm font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
+              >
+                padmadesireddy36@gmail.com
+              </a>
             </motion.div>
             <motion.div className="text-center" variants={itemVariants}>
               <motion.div
@@ -138,6 +144,12 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-slate-600">
                 Call us during business hours for immediate assistance
               </p>
+              <a
+                href="tel:+918498950787"
+                className="mt-2 inline-block text-sm font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
+              >
+                +91 8498950787
+              </a>
             </motion.div>
             <motion.div className="text-center" variants={itemVariants}>
               <motion.div
