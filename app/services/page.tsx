@@ -7,7 +7,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 const services = [
   {
     id: "ai-content",
-    title: "AI Content Creation",
+    title: "AI Content Creation.",
     description:
       "Harness the power of artificial intelligence to create compelling, high-quality content that resonates with your audience and drives engagement.",
     features: [

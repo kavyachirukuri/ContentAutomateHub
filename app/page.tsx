@@ -13,7 +13,7 @@ const services = [
     href: "/services#ai-content",
   },
   {
-    title: "Automation Solutions",
+    title: "Automation Solutions...",
     description:
       "Streamline your workflows with intelligent automation that reduces manual tasks, increases efficiency, and scales with your business needs.",
     href: "/services#automation",
