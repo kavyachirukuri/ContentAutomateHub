@@ -1,5 +1,40 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Backend Setup (MongoDB + Admin)
+
+The app uses MongoDB for contact form storage and an admin area for managing submissions.
+
+### 1. Environment variables
+
+Copy `.env.example` to `.env` and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+**Required:**
+- `MONGODB_URI` – MongoDB connection string (e.g. from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- `SESSION_SECRET` – Min 32 characters for session encryption
+- `ADMIN_EMAIL` + `ADMIN_PASSWORD` – Admin login (dev only)  
+  OR `ADMIN_EMAIL` + `ADMIN_PASSWORD_HASH` for production (run `node scripts/generate-password-hash.js "your-password"` to generate)
+
+**Optional (email notifications):**
+- `RESEND_API_KEY` – [Resend](https://resend.com) API key
+- `EMAIL_FROM` – Sender address
+- `ADMIN_EMAIL` or `EMAIL_TO` – Where to send new contact notifications
+
+### 2. Admin area
+
+- **Login:** `/admin/login`
+- **Dashboard:** `/admin`
+- **Contacts:** `/admin/contacts` – view and update status (new / read / replied)
+
+### 3. API routes
+
+- `POST /api/contact` – Contact form submission (saves to MongoDB, optionally emails)
+- `GET /api/admin/contacts` – List contacts (auth required)
+- `GET/PATCH /api/admin/contacts/[id]` – Single contact (auth required)
+
 ## Getting Started
 
 First, run the development server:

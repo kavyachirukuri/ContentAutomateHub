@@ -1,37 +1,75 @@
 import { NextRequest, NextResponse } from "next/server";
+import connectDB from "@/lib/db";
+import { Contact } from "@/models/Contact";
+import { sendContactNotification } from "@/lib/email";
+
+const VALID_SERVICES = [
+  "ai-content",
+  "automation",
+  "saas",
+  "websites",
+  "multiple",
+  "other",
+];
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, company, service, message } = body;
 
-    // Validate required fields
-    if (!name || !email || !service || !message) {
+    if (!name || typeof name !== "string" || name.trim().length < 2) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Name must be at least 2 characters" },
         { status: 400 }
       );
     }
 
-    // TODO: Implement your email sending logic here
-    // Examples:
-    // - Send email using a service like SendGrid, Resend, or Nodemailer
-    // - Save to a database
-    // - Send to a CRM system
-    // - Use a form service like Formspree, FormSubmit, etc.
+    if (!email || typeof email !== "string") {
+      return NextResponse.json(
+        { error: "Valid email is required" },
+        { status: 400 }
+      );
+    }
 
-    // For now, we'll just log the submission
-    console.log("Contact form submission:", {
-      name,
-      email,
-      company,
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address" },
+        { status: 400 }
+      );
+    }
+
+    if (!service || !VALID_SERVICES.includes(service)) {
+      return NextResponse.json(
+        { error: "Please select a valid service" },
+        { status: 400 }
+      );
+    }
+
+    if (!message || typeof message !== "string" || message.trim().length < 10) {
+      return NextResponse.json(
+        { error: "Message must be at least 10 characters" },
+        { status: 400 }
+      );
+    }
+
+    await connectDB();
+
+    const contact = await Contact.create({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      company: company?.trim() || undefined,
       service,
-      message,
-      timestamp: new Date().toISOString(),
+      message: message.trim(),
     });
 
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await sendContactNotification({
+      name: contact.name,
+      email: contact.email,
+      company: contact.company,
+      service: contact.service,
+      message: contact.message,
+    });
 
     return NextResponse.json(
       { message: "Contact form submitted successfully" },
