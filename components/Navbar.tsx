@@ -25,7 +25,7 @@ export function Navbar() {
           href="/"
           className="text-sm font-semibold tracking-tight text-slate-950"
         >
-          Padma Desireddy
+          SynkraAi
         </Link>
 
         <nav aria-label="Primary">
