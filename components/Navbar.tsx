@@ -25,7 +25,7 @@ export function Navbar() {
           href="/"
           className="text-sm font-semibold tracking-tight text-slate-950"
         >
-          SynkraAi
+          SynkraAI
         </Link>
 
         <nav aria-label="Primary">
@@ -40,7 +40,7 @@ export function Navbar() {
                     className={cn(
                       "text-sm font-medium text-slate-600 motion-safe:transition-colors motion-safe:duration-200 hover:text-emerald-900",
                       active &&
-                        "text-emerald-900 underline decoration-emerald-300 underline-offset-8",
+                        "text-emerald-900 underline decoration-emerald-300 underline-offset-8"
                     )}
                   >
                     {item.label}
@@ -54,4 +54,3 @@ export function Navbar() {
     </header>
   );
 }
-
