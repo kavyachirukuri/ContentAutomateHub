@@ -12,6 +12,11 @@ type Contact = {
   name: string;
   email: string;
   company?: string;
+<<<<<<< HEAD
+=======
+  phone?: string;
+  industry?: string;
+>>>>>>> 012d777 (updated to v1)
   service: string;
   message: string;
   status: "new" | "read" | "replied";
@@ -26,10 +31,18 @@ type Pagination = {
 };
 
 const SERVICE_LABELS: Record<string, string> = {
+<<<<<<< HEAD
   "ai-content": "AI Content Creation",
   automation: "Automation Solutions",
   saas: "SaaS & Web Applications",
   websites: "Website Development",
+=======
+  branding: "Branding Services",
+  "web-mobile": "Web & Mobile Development",
+  "ai-marketing": "AI Powered Digital Marketing",
+  "content-studio": "AI Content Studio",
+  "business-automation": "AI Business Automation",
+>>>>>>> 012d777 (updated to v1)
   multiple: "Multiple Services",
   other: "Other",
 };
@@ -193,8 +206,20 @@ export default function AdminContactsPage() {
                       {contact.company && (
                         <span> · {contact.company}</span>
                       )}
+<<<<<<< HEAD
                     </p>
                     <p className="text-sm text-slate-700 line-clamp-2">
+=======
+                      {contact.phone && (
+                        <span> · {contact.phone}</span>
+                      )}
+                      {contact.industry && (
+                        <span> · {contact.industry}</span>
+                      )}
+                    </p>
+                    <p className="text-sm text-slate-700 line-clamp-2">
+                      <span className="font-medium text-slate-500">Primary challenge: </span>
+>>>>>>> 012d777 (updated to v1)
                       {contact.message}
                     </p>
                     <p className="text-xs text-slate-500">

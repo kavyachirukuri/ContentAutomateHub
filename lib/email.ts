@@ -11,6 +11,11 @@ export async function sendContactNotification(data: {
   name: string;
   email: string;
   company?: string;
+<<<<<<< HEAD
+=======
+  phone?: string;
+  industry?: string;
+>>>>>>> 012d777 (updated to v1)
   service: string;
   message: string;
 }): Promise<{ success: boolean; error?: string }> {
@@ -27,9 +32,17 @@ export async function sendContactNotification(data: {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+<<<<<<< HEAD
         <p><strong>Company:</strong> ${data.company || "—"}</p>
         <p><strong>Service:</strong> ${data.service}</p>
         <p><strong>Message:</strong></p>
+=======
+        <p><strong>Business name:</strong> ${data.company || "—"}</p>
+        <p><strong>Phone:</strong> ${data.phone || "—"}</p>
+        <p><strong>Industry:</strong> ${data.industry || "—"}</p>
+        <p><strong>Service:</strong> ${data.service}</p>
+        <p><strong>Primary challenge:</strong></p>
+>>>>>>> 012d777 (updated to v1)
         <p>${data.message.replace(/\n/g, "<br>")}</p>
       `,
     });

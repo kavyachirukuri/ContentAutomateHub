@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "tailwindcss";
 
 @theme inline {
@@ -8,6 +9,16 @@
   ::selection {
     background: #ccfbf1;
     color: #052e16;
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #0c0f14;
+>>>>>>> 012d777 (updated to v1)
   }
 }
 
@@ -15,7 +26,11 @@
   @keyframes fade-up {
     from {
       opacity: 0;
+<<<<<<< HEAD
       transform: translateY(10px);
+=======
+      transform: translateY(12px);
+>>>>>>> 012d777 (updated to v1)
     }
     to {
       opacity: 1;
@@ -31,4 +46,46 @@
       opacity: 1;
     }
   }
+<<<<<<< HEAD
+=======
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-12px) translateX(6px);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes border-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 32px rgba(212, 175, 55, 0.35);
+    }
+  }
+>>>>>>> 012d777 (updated to v1)
 }
