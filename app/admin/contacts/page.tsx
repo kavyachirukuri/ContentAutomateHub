@@ -12,11 +12,8 @@ type Contact = {
   name: string;
   email: string;
   company?: string;
-<<<<<<< HEAD
-=======
   phone?: string;
   industry?: string;
->>>>>>> 012d777 (updated to v1)
   service: string;
   message: string;
   status: "new" | "read" | "replied";
@@ -31,18 +28,11 @@ type Pagination = {
 };
 
 const SERVICE_LABELS: Record<string, string> = {
-<<<<<<< HEAD
-  "ai-content": "AI Content Creation",
-  automation: "Automation Solutions",
-  saas: "SaaS & Web Applications",
-  websites: "Website Development",
-=======
   branding: "Branding Services",
   "web-mobile": "Web & Mobile Development",
   "ai-marketing": "AI Powered Digital Marketing",
   "content-studio": "AI Content Studio",
   "business-automation": "AI Business Automation",
->>>>>>> 012d777 (updated to v1)
   multiple: "Multiple Services",
   other: "Other",
 };
@@ -86,7 +76,10 @@ export default function AdminContactsPage() {
     fetchContacts();
   }, [fetchContacts]);
 
-  const updateStatus = async (id: string, status: "new" | "read" | "replied") => {
+  const updateStatus = async (
+    id: string,
+    status: "new" | "read" | "replied",
+  ) => {
     setUpdatingId(id);
     try {
       const res = await fetch(`/api/admin/contacts/${id}`, {
@@ -96,7 +89,7 @@ export default function AdminContactsPage() {
       });
       if (res.ok) {
         setContacts((prev) =>
-          prev.map((c) => (c._id === id ? { ...c, status } : c))
+          prev.map((c) => (c._id === id ? { ...c, status } : c)),
         );
       }
     } finally {
@@ -187,7 +180,8 @@ export default function AdminContactsPage() {
                       <span
                         className={cn(
                           "rounded-full px-2.5 py-0.5 text-xs font-medium",
-                          STATUS_COLORS[contact.status] ?? "bg-stone-100 text-stone-800"
+                          STATUS_COLORS[contact.status] ??
+                            "bg-stone-100 text-stone-800",
                         )}
                       >
                         {contact.status}
@@ -203,23 +197,14 @@ export default function AdminContactsPage() {
                       >
                         {contact.email}
                       </a>
-                      {contact.company && (
-                        <span> · {contact.company}</span>
-                      )}
-<<<<<<< HEAD
+                      {contact.company && <span> · {contact.company}</span>}
+                      {contact.phone && <span> · {contact.phone}</span>}
+                      {contact.industry && <span> · {contact.industry}</span>}
                     </p>
                     <p className="text-sm text-slate-700 line-clamp-2">
-=======
-                      {contact.phone && (
-                        <span> · {contact.phone}</span>
-                      )}
-                      {contact.industry && (
-                        <span> · {contact.industry}</span>
-                      )}
-                    </p>
-                    <p className="text-sm text-slate-700 line-clamp-2">
-                      <span className="font-medium text-slate-500">Primary challenge: </span>
->>>>>>> 012d777 (updated to v1)
+                      <span className="font-medium text-slate-500">
+                        Primary challenge:{" "}
+                      </span>
                       {contact.message}
                     </p>
                     <p className="text-xs text-slate-500">
@@ -239,7 +224,7 @@ export default function AdminContactsPage() {
                             "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
                             contact.status === s
                               ? "bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200"
-                              : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                              : "bg-stone-100 text-stone-700 hover:bg-stone-200",
                           )}
                         >
                           {s}

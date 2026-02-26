@@ -1,4 +1,10 @@
-type ClassValue = string | number | boolean | undefined | null | { [key: string]: any };
+type ClassValue =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | { [key: string]: boolean | undefined | null };
 
 /**
  * Simple utility to merge class names

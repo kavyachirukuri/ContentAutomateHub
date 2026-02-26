@@ -1,18 +1,11 @@
 import mongoose, { Schema, model, models } from "mongoose";
 
 const VALID_SERVICES = [
-<<<<<<< HEAD
-  "ai-content",
-  "automation",
-  "saas",
-  "websites",
-=======
   "branding",
   "web-mobile",
   "ai-marketing",
   "content-studio",
   "business-automation",
->>>>>>> 012d777 (updated to v1)
   "multiple",
   "other",
 ] as const;
@@ -26,11 +19,8 @@ export interface IContact {
   name: string;
   email: string;
   company?: string;
-<<<<<<< HEAD
-=======
   phone?: string;
   industry?: string;
->>>>>>> 012d777 (updated to v1)
   service: ContactService;
   message: string;
   status: ContactStatus;
@@ -43,11 +33,8 @@ const contactSchema = new Schema<IContact>(
     name: { type: String, required: true, minlength: 2 },
     email: { type: String, required: true },
     company: { type: String, default: "" },
-<<<<<<< HEAD
-=======
     phone: { type: String, default: "" },
     industry: { type: String, default: "" },
->>>>>>> 012d777 (updated to v1)
     service: {
       type: String,
       required: true,
@@ -60,7 +47,7 @@ const contactSchema = new Schema<IContact>(
       default: "new",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Contact =
