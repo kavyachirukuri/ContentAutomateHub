@@ -23,6 +23,13 @@ cp .env.example .env
 - `EMAIL_FROM` – Sender address
 - `ADMIN_EMAIL` or `EMAIL_TO` – Where to send new contact notifications
 
+**Optional (PRD features):**
+- `CRM_WEBHOOK_URL` – Webhook to send leads to HubSpot/Zoho/Zapier
+- `NEXT_PUBLIC_BOOKING_EMBED_URL` – Calendly or Cal.com embed URL for Book a Strategy Call
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` – Google Analytics 4 Measurement ID
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` – WhatsApp number (with country code, no + or spaces)
+- `NEXT_PUBLIC_SITE_URL` – Canonical site URL (sitemap, robots, Open Graph)
+
 ### 2. Admin area
 
 - **Login:** `/admin/login`

@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
 
+const BOOKING_EMBED_URL =
+  process.env.NEXT_PUBLIC_BOOKING_EMBED_URL ||
+  "";
+
 export default function BookCallPage() {
   return (
     <>
@@ -31,7 +35,7 @@ export default function BookCallPage() {
 
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto max-w-4xl">
             <motion.div
               className="rounded-2xl border border-[#0c0f14]/10 bg-gray-50 p-8 sm:p-10"
               initial={{ opacity: 0, y: 20 }}
@@ -39,36 +43,59 @@ export default function BookCallPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <h2 className="text-xl font-bold text-[#0c0f14]">
-                Appointment Booking
+                Appointment Booking Calendar
               </h2>
               <p className="mt-2 text-gray-600">
                 Choose a time that works for you. Our team will send a
                 confirmation and calendar invite.
               </p>
-              <div className="mt-8 rounded-lg border-2 border-dashed border-[#0c0f14]/20 bg-white p-12 text-center">
-                <p className="text-sm font-medium text-gray-500">
-                  Calendar integration placeholder
-                </p>
-                <p className="mt-2 text-sm text-gray-400">
-                  Connect your preferred booking tool (Calendly, Cal.com, etc.)
-                  or use the contact form to request a call.
-                </p>
-                <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                  <Button href="/contact">Book My Strategy Call via Contact</Button>
-                  <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-[#d4af37] hover:underline"
-                  >
-                    Open Calendly →
-                  </a>
+              {BOOKING_EMBED_URL ? (
+                <div className="mt-8 min-h-[600px] w-full overflow-hidden rounded-lg border border-[#0c0f14]/10 bg-white">
+                  <iframe
+                    title="Book a Strategy Call"
+                    src={BOOKING_EMBED_URL}
+                    className="h-[600px] w-full border-0"
+                  />
                 </div>
-              </div>
+              ) : (
+                <div className="mt-8 rounded-lg border-2 border-dashed border-[#0c0f14]/20 bg-white p-12 text-center">
+                  <p className="text-sm font-medium text-gray-500">
+                    Set NEXT_PUBLIC_BOOKING_EMBED_URL to your Calendly or Cal.com
+                    embed URL to show the booking calendar here.
+                  </p>
+                  <p className="mt-2 text-sm text-gray-400">
+                    Or use the options below to request a call.
+                  </p>
+                  <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                    <Button href="/contact">
+                      Book My Strategy Call via Contact
+                    </Button>
+                    <a
+                      href="https://calendly.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-[#d4af37] hover:underline"
+                    >
+                      Open Calendly →
+                    </a>
+                    <a
+                      href="https://cal.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-[#d4af37] hover:underline"
+                    >
+                      Open Cal.com →
+                    </a>
+                  </div>
+                </div>
+              )}
             </motion.div>
             <p className="mt-6 text-center text-sm text-gray-500">
               Prefer to chat first? Use the WhatsApp button or{" "}
-              <a href="/contact" className="font-medium text-[#d4af37] hover:underline">
+              <a
+                href="/contact"
+                className="font-medium text-[#d4af37] hover:underline"
+              >
                 send us a message
               </a>
               .

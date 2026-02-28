@@ -1,5 +1,6 @@
 /**
- * SynkraAI – Core services (content copy document)
+ * SynkraAI – Core services (Content Copy document)
+ * One-Stop AI & Digital Transformation Partner for SMBs.
  */
 
 export const SERVICE_CATEGORIES = [

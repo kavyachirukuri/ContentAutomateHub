@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import { Contact } from "@/models/Contact";
 import { sendContactNotification } from "@/lib/email";
+import { sendLeadToCrm } from "@/lib/crm";
 
 const VALID_SERVICES = [
   "branding",
@@ -63,6 +64,16 @@ export async function POST(request: NextRequest) {
     });
 
     await sendContactNotification({
+      name: contact.name,
+      email: contact.email,
+      company: contact.company,
+      phone: contact.phone,
+      industry: contact.industry,
+      service: contact.service,
+      message: contact.message,
+    });
+
+    await sendLeadToCrm({
       name: contact.name,
       email: contact.email,
       company: contact.company,

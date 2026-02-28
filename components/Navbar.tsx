@@ -11,7 +11,12 @@ type NavItem = { href: string; label: string; children?: NavChild[] };
 
 const navItems: NavItem[] = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/industries", label: "Industries" },
+  { href: "/automation-solutions", label: "AI Automation" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,7 +30,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="border-b border-stone-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.06)]">
+    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.06)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
         <Link
           href="/"
@@ -44,9 +49,9 @@ export function Navbar() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "text-sm font-medium text-slate-600 motion-safe:transition-colors motion-safe:duration-200 hover:text-emerald-900",
+                      "text-sm font-medium text-slate-600 motion-safe:transition-colors motion-safe:duration-200 hover:text-[#0c0f14]",
                       active &&
-                        "text-emerald-900 underline decoration-emerald-300 underline-offset-8"
+                        "text-[#0c0f14] font-semibold underline decoration-[#d4af37] underline-offset-8"
                     )}
                   >
                     {item.label}
