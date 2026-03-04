@@ -18,7 +18,7 @@ export default function AboutPage() {
               About Us
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Building Intelligent Digital Infrastructure for Modern Businesses
+              Your Growth Partner in the Age of AI
             </h1>
           </motion.div>
         </div>
@@ -34,14 +34,18 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-lg leading-8 text-gray-600">
-              SynkraAI is a full‑stack AI and digital transformation company
-              focused on helping small and medium businesses scale through
-              intelligent systems.
+              At SynkraAI, we combine creativity, strategy, and artificial
+              intelligence to build intelligent growth systems for ambitious
+              brands.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              We don&apos;t just deliver services — we build long‑term growth
-              infrastructure by combining branding, technology, marketing,
-              content, and automation into one unified ecosystem.
+              From branding and content creation to advanced automation
+              workflows and AI-powered marketing, we design solutions that work
+              24/7 — so your business grows even when you don&apos;t.
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              We don&apos;t just build tools. We build scalable digital
+              ecosystems.
             </p>
           </motion.div>
 

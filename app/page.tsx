@@ -72,30 +72,29 @@ export default function Home() {
               variants={itemVariants}
               className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
             >
-              Invisible Intelligence.{" "}
-              <motion.span
-                className="inline-block text-[#d4af37]"
-                variants={itemVariants}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                Visible Business Growth.
-              </motion.span>
+              AI-Powered Branding, Marketing & Automation That Scales Your
+              Business
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="mt-6 text-lg leading-8 text-gray-300 sm:text-xl"
             >
-              SynkraAI helps businesses build strong brands, powerful digital
-              platforms, and AI‑driven automation systems that scale growth
-              without increasing manual effort.
+              We help modern businesses eliminate manual work, generate
+              consistent leads, and build powerful digital brands using
+              intelligent AI systems and data-driven automation.
+            </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="mt-3 text-base text-gray-400 sm:text-lg"
+            >
+              Less manual effort. More predictable growth. Smarter systems.
             </motion.p>
             <motion.div
               variants={itemVariants}
               className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
             >
               <Button href="/book-call" size="lg">
-                Book a Free Strategy Call
+                Book Your Free AI Strategy Call
               </Button>
               <Button href="/services" variant="secondary" size="lg">
                 Explore Our Services

@@ -29,6 +29,9 @@ export default function ServiceDetailPage() {
     );
   }
 
+  const heading = category.detailTitle ?? category.title;
+  const description = category.detailDescription ?? category.shortDescription;
+
   return (
     <>
       <section className="bg-[#0c0f14] py-16 sm:py-24">
@@ -48,10 +51,10 @@ export default function ServiceDetailPage() {
               {category.title}
             </p>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              {category.title}
+              {heading}
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-gray-400">
-              {category.shortDescription}
+              {description}
             </p>
           </motion.div>
         </div>
