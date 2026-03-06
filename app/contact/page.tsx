@@ -89,6 +89,10 @@ export default function ContactPage() {
               </a>{" "}
               for detailed inquiries.
             </p>
+            <p className="mt-4 text-gray-600">
+              <strong className="text-[#0c0f14]">Office:</strong> #B-1, 3rd
+              Floor, Padma Manohar Arcade, Madhura Nagar, Hyderabad - 500038
+            </p>
           </motion.div>
         </div>
       </section>
