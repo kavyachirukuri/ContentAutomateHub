@@ -3,7 +3,17 @@
  * One-Stop AI & Digital Transformation Partner for SMBs.
  */
 
-export const SERVICE_CATEGORIES = [
+export interface ServiceCategory {
+  id: string;
+  title: string;
+  slug: string;
+  shortDescription: string;
+  detailTitle: string;
+  detailDescription: string;
+  services: readonly string[];
+}
+
+export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "branding",
     title: "Branding & Identity",
@@ -110,9 +120,9 @@ Work less on tasks. Focus more on growth.`,
       "Internal team workflow automation",
     ],
   },
-] as const;
+];
 
-export type ServiceCategoryId = (typeof SERVICE_CATEGORIES)[number]["id"];
+export type ServiceCategoryId = ServiceCategory["id"];
 
 export const PROCESS_STEPS = [
   "Audit",

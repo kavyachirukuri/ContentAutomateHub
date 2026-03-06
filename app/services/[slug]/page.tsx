@@ -14,7 +14,6 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const slug = typeof params.slug === "string" ? params.slug : "";
   const category = SERVICE_CATEGORIES.find((c) => c.slug === slug);
-
   if (!category) {
     return (
       <section className="bg-white py-24 text-center">
