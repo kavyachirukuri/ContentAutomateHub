@@ -52,29 +52,6 @@ export function ServiceCard({
       >
         {description}
       </p>
-      {href && (
-        <motion.span
-          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#d4af37]"
-          initial={false}
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.2 }}
-        >
-          Learn more
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </motion.span>
-      )}
     </motion.div>
   );
 
