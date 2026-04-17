@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/Button";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/Button';
 
 export default function AboutPage() {
   return (
@@ -59,8 +59,9 @@ export default function AboutPage() {
             >
               <h2 className="text-xl font-bold text-[#0c0f14]">Mission</h2>
               <p className="mt-4 text-gray-600">
-                To eliminate manual bottlenecks and help businesses operate
-                faster, smarter, and more profitably using AI‑driven systems.
+                To help modern businesses grow smarter through AI-driven
+                branding, automation, and digital systems that deliver
+                measurable results
               </p>
             </motion.div>
             <motion.div

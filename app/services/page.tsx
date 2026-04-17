@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Button } from "@/components/Button";
-import { SERVICE_CATEGORIES } from "@/lib/services-data";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/Button';
+import { SERVICE_CATEGORIES } from '@/lib/services-data';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -75,31 +74,7 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6">
-                      <Link
-                        href={`/services/${cat.slug}`}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-[#d4af37] hover:underline"
-                      >
-                        View full service details
-                        <svg
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </Link>
-                    </div>
                   </div>
-                  <Button href={`/services/${cat.slug}`} variant="secondary">
-                    Learn more
-                  </Button>
                 </div>
               </motion.div>
             ))}

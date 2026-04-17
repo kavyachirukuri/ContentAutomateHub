@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -14,10 +13,7 @@ const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
   { href: "/industries", label: "Industries" },
-  { href: "/automation-solutions", label: "AI Automation" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -35,19 +31,10 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-5">
         <Link
           href="/"
-          className="relative flex shrink-0 items-center justify-start self-start sm:self-center"
-          aria-label="Synkra.AI Home"
+          className="shrink-0 self-start text-2xl font-bold tracking-tight text-[#0c0f14] sm:self-center sm:text-[1.65rem]"
+          aria-label="SynkraAI Home"
         >
-          {/* Tall display height so the horizontal logo reads clearly (asset is wide + short) */}
-          <Image
-            src="/synkraLogoMar14.png"
-            alt="Synkra.AI — Invisible Intelligence, Visible Impact"
-            width={640}
-            height={160}
-            className="h-14 w-auto min-h-[3.5rem] max-h-none object-contain object-left sm:h-16 sm:min-h-16 md:h-[4.25rem] md:min-h-[4.25rem] lg:h-[4.75rem] lg:min-h-[4.75rem]"
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 380px, 440px"
-            priority
-          />
+          Synkra<span className="text-[#d4af37]">AI</span>
         </Link>
 
         <nav aria-label="Primary">

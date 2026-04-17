@@ -10,9 +10,7 @@ const footerLinks = {
   ],
   Company: [
     { href: "/about", label: "About Us" },
-    { href: "/case-studies", label: "Case Studies" },
     { href: "/industries", label: "Industries" },
-    { href: "/blog", label: "Blog" },
   ],
   Connect: [
     { href: "/contact", label: "Contact" },
