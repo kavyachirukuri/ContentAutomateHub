@@ -23,41 +23,50 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-[#0c0f14] text-white">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+          <div className="max-w-sm">
             <Link href="/" className="text-xl font-bold tracking-tight">
               Synkra<span className="text-[#d4af37]">AI</span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm text-gray-400">
+            <p className="mt-3 text-sm leading-relaxed text-gray-400">
               One‑Stop AI & Digital Growth Partner
             </p>
-            <p className="mt-2 text-sm text-gray-400">
-              Branding | Web & Mobile Development | AI Marketing | AI Content |
-              Automation
-            </p>
-            <p className="mt-4 text-sm text-gray-400">
-              Email:{" "}
-              <a
-                href="mailto:contact@synkraai.in"
-                className="text-[#d4af37] hover:underline"
-              >
-                contact@synkraai.in
-              </a>
-            </p>
-            <p className="mt-1 text-sm text-gray-400">
-              Website:{" "}
-              <a
-                href="https://www.synkraai.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#d4af37] hover:underline"
-              >
-                www.synkraai.in
-              </a>
-            </p>
-            <p className="mt-4 text-sm text-gray-400">
-              Address: #B-1, 3rd Floor, Padma Manohar Arcade, Madhura Nagar,
-              Hyderabad - 500038
-            </p>
+
+            <div className="mt-4 space-y-5 border-t border-white/10 pt-4">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                  Email
+                </p>
+                <a
+                  href="mailto:contact@synkraai.in"
+                  className="mt-1 inline-block text-sm text-[#d4af37] hover:underline"
+                >
+                  contact@synkraai.in
+                </a>
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                  Website
+                </p>
+                <a
+                  href="https://www.synkraai.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block text-sm text-[#d4af37] hover:underline"
+                >
+                  www.synkraai.in
+                </a>
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                  Office
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-gray-400">
+                  #B-1, 3rd Floor, Padma Manohar Arcade,
+                  <br />
+                  Madhura Nagar, Hyderabad — 500038
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>
