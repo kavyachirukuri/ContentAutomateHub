@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -31,12 +32,22 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.06)]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-5">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight text-slate-950"
+          className="relative flex shrink-0 items-center justify-start self-start sm:self-center"
+          aria-label="Synkra.AI Home"
         >
-          SynkraAI
+          {/* Tall display height so the horizontal logo reads clearly (asset is wide + short) */}
+          <Image
+            src="/synkraLogoMar14.png"
+            alt="Synkra.AI — Invisible Intelligence, Visible Impact"
+            width={640}
+            height={160}
+            className="h-14 w-auto min-h-[3.5rem] max-h-none object-contain object-left sm:h-16 sm:min-h-16 md:h-[4.25rem] md:min-h-[4.25rem] lg:h-[4.75rem] lg:min-h-[4.75rem]"
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 380px, 440px"
+            priority
+          />
         </Link>
 
         <nav aria-label="Primary">
@@ -74,7 +85,7 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-white hover:bg-white/10 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md text-slate-800 hover:bg-slate-100 md:hidden"
           onClick={() => setMobileOpen((o) => !o)}
         >
           {mobileOpen ? (
