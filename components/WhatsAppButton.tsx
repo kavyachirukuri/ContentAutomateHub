@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
  */
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919010432070";
 const MESSAGE = encodeURIComponent(
-  "Hi, I'm interested in SynkraAI's services. Can we talk?"
+  "Hi SynkraAI, I need AI videos for my brand. Can I get a free demo?"
 );
 
 export function WhatsAppButton() {
@@ -19,8 +19,8 @@ export function WhatsAppButton() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c0f14]"
+      aria-label="Need AI videos? Chat on WhatsApp"
+      className="fixed bottom-20 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] md:bottom-6 md:right-6"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{
         opacity: 1,

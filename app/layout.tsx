@@ -14,24 +14,24 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "SynkraAI – One-Stop AI & Digital Growth Partner",
+    default: "AI Video Agency in Hyderabad | SynkraAI",
     template: "%s | SynkraAI",
   },
   description:
-    "SynkraAI – One-Stop AI & Digital Transformation Partner for SMBs. Branding, web & mobile development, AI-powered marketing, content studio, and business automation. Book a free strategy call.",
+    "AI-powered promotional videos, reels, ads, and creative content for modern brands. Fast, cinematic, and social-media-ready AI video production.",
   keywords: [
-    "AI digital transformation",
-    "SMB marketing",
-    "branding",
-    "web development",
-    "business automation",
-    "real estate marketing",
-    "real estate AI",
+    "AI video agency",
+    "AI promotional videos",
+    "AI reels service",
+    "AI product videos",
+    "AI marketing videos",
+    "AI ads agency",
+    "AI video agency Hyderabad",
   ],
   openGraph: {
-    title: "SynkraAI – One-Stop AI & Digital Growth Partner",
+    title: "AI Video Agency in Hyderabad | SynkraAI",
     description:
-      "Branding, web, AI marketing, content, and automation for small and medium businesses.",
+      "Premium AI-powered promotional videos, reels, ads, and creative marketing content for modern brands.",
   },
 };
 
@@ -42,16 +42,18 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     name: "SynkraAI",
-    description: "One-Stop AI & Digital Transformation Partner for SMBs. Branding, web & mobile development, AI-powered marketing, content studio, and business automation.",
+    description:
+      "AI-powered creative video agency creating cinematic promotional videos, reels, ads, mascots, and social-media-ready content for modern brands.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.synkraai.in",
+    areaServed: "Hyderabad, India",
     sameAs: [],
   };
 
   return (
     <html lang="en" className={plusJakarta.variable}>
-      <body className="min-h-screen bg-white font-sans text-[#0c0f14] antialiased">
+      <body className="min-h-screen bg-[#0B0B0F] font-sans text-white antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

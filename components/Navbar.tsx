@@ -10,11 +10,10 @@ type NavChild = { href: string; label: string };
 type NavItem = { href: string; label: string; children?: NavChild[] };
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#portfolio", label: "Portfolio" },
+  { href: "/#services", label: "Services" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 function isActivePath(pathname: string, href: string) {
@@ -27,17 +26,17 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white shadow-[0_1px_0_0_rgba(15,23,42,0.06)]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B0B0F]/80 shadow-[0_1px_0_0_rgba(255,255,255,0.04)] backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
         <Link
           href="/"
-          className="shrink-0 self-start text-2xl font-bold tracking-tight text-[#0c0f14] sm:self-center sm:text-[1.65rem]"
+          className="shrink-0 text-2xl font-bold tracking-tight text-white sm:text-[1.65rem]"
           aria-label="SynkraAI Home"
         >
-          Synkra<span className="text-[#d4af37]">AI</span>
+          Synkra<span className="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">AI</span>
         </Link>
 
-        <nav aria-label="Primary">
+        <nav className="hidden md:block" aria-label="Primary">
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {navItems.map((item) => {
               const active = isActivePath(pathname, item.href);
@@ -47,9 +46,9 @@ export function Navbar() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "text-sm font-medium text-slate-600 motion-safe:transition-colors motion-safe:duration-200 hover:text-[#0c0f14]",
+                      "text-sm font-medium text-slate-300 motion-safe:transition-colors motion-safe:duration-200 hover:text-cyan-200",
                       active &&
-                        "text-[#0c0f14] font-semibold underline decoration-[#d4af37] underline-offset-8"
+                        "text-cyan-200 font-semibold underline decoration-cyan-300 underline-offset-8"
                     )}
                   >
                     {item.label}
@@ -63,16 +62,16 @@ export function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/book-call"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-[#d4af37] px-4 text-sm font-semibold text-[#0c0f14] hover:bg-[#e5c76b]"
+            className="inline-flex h-10 items-center justify-center rounded-md bg-gradient-to-r from-violet-500 to-cyan-300 px-4 text-sm font-semibold text-white shadow-lg shadow-cyan-950/30 hover:from-violet-400 hover:to-cyan-200"
           >
-            Book a Free Strategy Call
+            Get Free Demo Video
           </Link>
         </div>
 
         <button
           type="button"
           aria-label="Toggle menu"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-slate-800 hover:bg-slate-100 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md text-white hover:bg-white/10 md:hidden"
           onClick={() => setMobileOpen((o) => !o)}
         >
           {mobileOpen ? (
@@ -143,10 +142,10 @@ export function Navbar() {
           <div className="mt-4">
             <Link
               href="/book-call"
-              className="block w-full rounded-md bg-[#d4af37] py-3 text-center text-sm font-semibold text-[#0c0f14] hover:bg-[#e5c76b]"
+              className="block w-full rounded-md bg-gradient-to-r from-violet-500 to-cyan-300 py-3 text-center text-sm font-semibold text-white hover:from-violet-400 hover:to-cyan-200"
               onClick={() => setMobileOpen(false)}
             >
-              Book a Free Strategy Call
+              Get Free Demo Video
             </Link>
           </div>
         </motion.div>

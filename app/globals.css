@@ -4,8 +4,8 @@
 
 @layer base {
   ::selection {
-    background: rgba(212, 175, 55, 0.35);
-    color: #0c0f14;
+    background: rgba(103, 232, 249, 0.35);
+    color: #ffffff;
   }
 }
 
@@ -62,10 +62,10 @@
   @keyframes border-glow {
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 20px rgba(103, 232, 249, 0.2);
     }
     50% {
-      box-shadow: 0 0 32px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 0 32px rgba(103, 232, 249, 0.35);
     }
   }
 }

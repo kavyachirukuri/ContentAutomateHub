@@ -43,13 +43,13 @@ export function Button(props: ButtonProps) {
   const size = props.size ?? "md";
 
   const base =
-    "inline-flex items-center justify-center rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c0f14] disabled:pointer-events-none disabled:opacity-50 transition-all duration-200";
+    "inline-flex items-center justify-center rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] disabled:pointer-events-none disabled:opacity-50 transition-all duration-200";
 
   const variants: Record<ButtonVariant, string> = {
     primary:
-      "bg-[#d4af37] text-[#0c0f14] hover:bg-[#e5c76b] active:bg-[#b8962e] shadow-md hover:shadow-lg hover:shadow-[#d4af37]/25",
+      "bg-gradient-to-r from-violet-500 to-cyan-300 text-white hover:from-violet-400 hover:to-cyan-200 active:from-violet-600 active:to-cyan-400 shadow-md hover:shadow-lg hover:shadow-cyan-400/25",
     secondary:
-      "border-2 border-[#d4af37] bg-transparent text-[#d4af37] hover:bg-[#d4af37]/10",
+      "border-2 border-cyan-300/70 bg-transparent text-cyan-200 hover:bg-cyan-300/10",
     outline:
       "border border-white/40 bg-transparent text-white hover:bg-white/10 hover:border-white/60",
   };
