@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Analytics } from "@/components/Analytics";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -14,24 +15,25 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Video Agency in Hyderabad | SynkraAI",
+    default: "AI-Powered Growth Agency for SMBs | SynkraAI",
     template: "%s | SynkraAI",
   },
   description:
-    "AI-powered promotional videos, reels, ads, and creative content for modern brands. Fast, cinematic, and social-media-ready AI video production.",
+    "SynkraAI is the AI-first growth partner for ambitious SMBs — branding, web & app development, digital marketing, AI content & video, and AI automation under one roof.",
   keywords: [
-    "AI video agency",
-    "AI promotional videos",
-    "AI reels service",
-    "AI product videos",
-    "AI marketing videos",
-    "AI ads agency",
-    "AI video agency Hyderabad",
+    "AI growth agency",
+    "AI marketing agency",
+    "branding agency for SMBs",
+    "web and app development agency",
+    "AI automation agency",
+    "SEO AEO GEO agency",
+    "AI content and video agency",
+    "digital transformation agency Hyderabad",
   ],
   openGraph: {
-    title: "AI Video Agency in Hyderabad | SynkraAI",
+    title: "AI-Powered Growth Agency for SMBs | SynkraAI",
     description:
-      "Premium AI-powered promotional videos, reels, ads, and creative marketing content for modern brands.",
+      "One team. Every growth lever. Powered by AI, run by strategists. Branding, web & app development, digital marketing, AI content & video, and automation for SMBs.",
   },
 };
 
@@ -42,29 +44,39 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["Organization", "LocalBusiness"],
     name: "SynkraAI",
     description:
-      "AI-powered creative video agency creating cinematic promotional videos, reels, ads, mascots, and social-media-ready content for modern brands.",
+      "AI-powered growth partner for small and medium businesses, offering branding & identity, web & app development, digital marketing, AI content & video, and AI automation under one roof.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.synkraai.in",
+    email: "contact@synkraai.in",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "#B-1, 3rd Floor, Padma Manohar Arcade, Madhura Nagar",
+      addressLocality: "Hyderabad",
+      postalCode: "500038",
+      addressCountry: "IN",
+    },
     areaServed: "Hyderabad, India",
     sameAs: [],
   };
 
   return (
-    <html lang="en" className={plusJakarta.variable}>
-      <body className="min-h-screen bg-[#0B0B0F] font-sans text-white antialiased">
+    <html lang="en" className={plusJakarta.variable} suppressHydrationWarning>
+      <body className="min-h-screen bg-white font-sans text-[#0c0f14] antialiased transition-colors dark:bg-[#0B0B0F] dark:text-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Analytics />
-        <div className="relative flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="relative flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

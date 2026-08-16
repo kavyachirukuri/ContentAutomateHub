@@ -11,6 +11,7 @@ export type LeadPayload = {
   phone?: string;
   industry?: string;
   service?: string;
+  budgetRange?: string;
   message: string;
   source?: string;
 };

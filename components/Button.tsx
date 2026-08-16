@@ -43,15 +43,15 @@ export function Button(props: ButtonProps) {
   const size = props.size ?? "md";
 
   const base =
-    "inline-flex items-center justify-center rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] disabled:pointer-events-none disabled:opacity-50 transition-all duration-200";
+    "inline-flex items-center justify-center rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0B0B0F] disabled:pointer-events-none disabled:opacity-50 transition-all duration-200";
 
   const variants: Record<ButtonVariant, string> = {
     primary:
       "bg-gradient-to-r from-violet-500 to-cyan-300 text-white hover:from-violet-400 hover:to-cyan-200 active:from-violet-600 active:to-cyan-400 shadow-md hover:shadow-lg hover:shadow-cyan-400/25",
     secondary:
-      "border-2 border-cyan-300/70 bg-transparent text-cyan-200 hover:bg-cyan-300/10",
+      "border-2 border-[#b8962e]/70 bg-transparent text-[#b8962e] hover:bg-[#d4af37]/10 dark:border-cyan-300/70 dark:text-cyan-200 dark:hover:bg-cyan-300/10",
     outline:
-      "border border-white/40 bg-transparent text-white hover:bg-white/10 hover:border-white/60",
+      "border border-[#0c0f14]/40 bg-transparent text-[#0c0f14] hover:bg-[#0c0f14]/5 hover:border-[#0c0f14]/60 dark:border-white/40 dark:text-white dark:hover:bg-white/10 dark:hover:border-white/60",
   };
 
   const sizes: Record<ButtonSize, string> = {

@@ -3,7 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
   ::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #0c0f14;
+  }
+
+  .dark ::selection {
     background: rgba(103, 232, 249, 0.35);
     color: #ffffff;
   }

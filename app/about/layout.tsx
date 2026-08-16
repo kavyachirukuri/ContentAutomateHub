@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "SynkraAI is a full-stack AI and digital transformation company focused on helping SMBs and real estate businesses scale through intelligent systems.",
+    "SynkraAI is the AI-first growth partner for ambitious SMBs — one team covering branding, web & app development, digital marketing, AI content, and automation.",
 };
 
 export default function AboutLayout({

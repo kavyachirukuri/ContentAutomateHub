@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const VALID_SERVICES = [
   "branding",
@@ -22,6 +22,7 @@ export interface IContact {
   phone?: string;
   industry?: string;
   service: ContactService;
+  budgetRange?: string;
   message: string;
   status: ContactStatus;
   createdAt: Date;
@@ -40,6 +41,7 @@ const contactSchema = new Schema<IContact>(
       required: true,
       enum: VALID_SERVICES,
     },
+    budgetRange: { type: String, default: "" },
     message: { type: String, required: true, minlength: 10 },
     status: {
       type: String,

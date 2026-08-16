@@ -14,6 +14,7 @@ export async function sendContactNotification(data: {
   phone?: string;
   industry?: string;
   service: string;
+  budgetRange?: string;
   message: string;
 }): Promise<{ success: boolean; error?: string }> {
   if (!resend || !EMAIL_TO) {
@@ -32,8 +33,9 @@ export async function sendContactNotification(data: {
         <p><strong>Business name:</strong> ${data.company || "—"}</p>
         <p><strong>Phone:</strong> ${data.phone || "—"}</p>
         <p><strong>Industry:</strong> ${data.industry || "—"}</p>
-        <p><strong>Service:</strong> ${data.service}</p>
-        <p><strong>Primary challenge:</strong></p>
+        <p><strong>Service interested in:</strong> ${data.service}</p>
+        <p><strong>Budget range:</strong> ${data.budgetRange || "—"}</p>
+        <p><strong>Message:</strong></p>
         <p>${data.message.replace(/\n/g, "<br>")}</p>
       `,
     });

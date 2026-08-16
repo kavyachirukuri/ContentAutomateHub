@@ -17,7 +17,7 @@ const VALID_SERVICES = [
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, company, phone, industry, service, message } = body;
+    const { name, email, company, phone, industry, service, budgetRange, message } = body;
 
     if (!name || typeof name !== "string" || name.trim().length < 2) {
       return NextResponse.json(
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
 
     if (!message || typeof message !== "string" || message.trim().length < 10) {
       return NextResponse.json(
-        { error: "Primary challenge must be at least 10 characters" },
+        { error: "Message must be at least 10 characters" },
         { status: 400 },
       );
     }
@@ -60,6 +60,7 @@ export async function POST(request: NextRequest) {
       phone: phone?.trim() || undefined,
       industry: industry?.trim() || undefined,
       service: serviceValue,
+      budgetRange: budgetRange?.trim() || undefined,
       message: message.trim(),
     });
 
@@ -70,6 +71,7 @@ export async function POST(request: NextRequest) {
       phone: contact.phone,
       industry: contact.industry,
       service: contact.service,
+      budgetRange: contact.budgetRange,
       message: contact.message,
     });
 
@@ -80,6 +82,7 @@ export async function POST(request: NextRequest) {
       phone: contact.phone,
       industry: contact.industry,
       service: contact.service,
+      budgetRange: contact.budgetRange,
       message: contact.message,
     });
 

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Branding, web & mobile development, AI-powered digital marketing, AI content studio, and business automation for SMBs.",
+    "Branding & identity, web & app development, digital marketing (SEO/AEO/GEO), AI content & video, and AI automation — everything your business needs to grow.",
 };
 
 export default function ServicesLayout({

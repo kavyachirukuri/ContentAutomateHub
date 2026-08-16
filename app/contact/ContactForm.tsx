@@ -8,34 +8,40 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
+import { SERVICE_CATEGORIES } from "@/lib/services-data";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   businessName: z.string().optional(),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
-  industry: z.string().optional(),
-  primaryChallenge: z
-    .string()
-    .min(10, "Primary challenge must be at least 10 characters"),
+  service: z.string().optional(),
+  budgetRange: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
-const INDUSTRY_OPTIONS = [
+const SERVICE_OPTIONS = [
+  { value: "", label: "Select a service" },
+  ...SERVICE_CATEGORIES.map((cat) => ({ value: cat.slug, label: cat.title })),
+  { value: "multiple", label: "Multiple Services" },
+  { value: "other", label: "Other" },
+];
+
+const BUDGET_OPTIONS = [
   "",
-  "Real Estate",
-  "Professional Services",
-  "E-commerce",
-  "Healthcare",
-  "Technology",
-  "Retail",
-  "Other",
+  "Under ₹50,000",
+  "₹50,000 – ₹2,00,000",
+  "₹2,00,000 – ₹5,00,000",
+  "₹5,00,000+",
+  "Not sure yet",
 ];
 
 const inputBase =
-  "mt-2 block w-full rounded-md border bg-white px-3 py-2.5 text-sm text-[#0c0f14] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-offset-1 focus:border-[#d4af37]";
+  "mt-2 block w-full rounded-md border border-[#0c0f14]/20 bg-white px-3 py-2.5 text-sm text-[#0c0f14] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-offset-1 focus:border-[#d4af37] dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:placeholder:text-slate-500";
 const inputError = "border-red-400 focus:ring-red-400 focus:border-red-400";
+const labelClass = "block text-sm font-medium text-[#0c0f14] dark:text-white";
 
 export function ContactForm() {
   const {
@@ -58,9 +64,9 @@ export function ContactForm() {
         email: data.email,
         company: data.businessName,
         phone: data.phone,
-        industry: data.industry,
-        service: "other",
-        message: data.primaryChallenge,
+        service: data.service || "other",
+        budgetRange: data.budgetRange,
+        message: data.message,
       });
       if (response.status === 200) {
         setSubmitStatus("success");
@@ -86,7 +92,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-[#0c0f14]"
+            className={labelClass}
           >
             Name <span className="text-red-500">*</span>
           </label>
@@ -113,7 +119,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="businessName"
-            className="block text-sm font-medium text-[#0c0f14]"
+            className={labelClass}
           >
             Business name
           </label>
@@ -121,7 +127,7 @@ export function ContactForm() {
             type="text"
             id="businessName"
             {...register("businessName")}
-            className={cn(inputBase, "border-[#0c0f14]/20")}
+            className={inputBase}
             placeholder="Your business name"
           />
         </div>
@@ -131,7 +137,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-[#0c0f14]"
+            className={labelClass}
           >
             Email <span className="text-red-500">*</span>
           </label>
@@ -158,7 +164,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-[#0c0f14]"
+            className={labelClass}
           >
             Phone number
           </label>
@@ -166,55 +172,76 @@ export function ContactForm() {
             type="tel"
             id="phone"
             {...register("phone")}
-            className={cn(inputBase, "border-[#0c0f14]/20")}
+            className={inputBase}
             placeholder="+1 234 567 8900"
           />
         </div>
       </div>
 
-      <div>
-        <label
-          htmlFor="industry"
-          className="block text-sm font-medium text-[#0c0f14]"
-        >
-          Industry
-        </label>
-        <select
-          id="industry"
-          {...register("industry")}
-          className={cn(inputBase, "border-[#0c0f14]/20")}
-        >
-          {INDUSTRY_OPTIONS.map((opt) => (
-            <option key={opt || "blank"} value={opt}>
-              {opt || "Select industry"}
-            </option>
-          ))}
-        </select>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="service"
+            className={labelClass}
+          >
+            Service interested in
+          </label>
+          <select
+            id="service"
+            {...register("service")}
+            className={inputBase}
+          >
+            {SERVICE_OPTIONS.map((opt) => (
+              <option key={opt.value || "blank"} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label
+            htmlFor="budgetRange"
+            className={labelClass}
+          >
+            Budget range <span className="text-gray-400">(optional)</span>
+          </label>
+          <select
+            id="budgetRange"
+            {...register("budgetRange")}
+            className={inputBase}
+          >
+            {BUDGET_OPTIONS.map((opt) => (
+              <option key={opt || "blank"} value={opt}>
+                {opt || "Select a range"}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div>
         <label
-          htmlFor="primaryChallenge"
-          className="block text-sm font-medium text-[#0c0f14]"
+          htmlFor="message"
+          className={labelClass}
         >
-          Primary challenge <span className="text-red-500">*</span>
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
-          id="primaryChallenge"
+          id="message"
           rows={5}
-          {...register("primaryChallenge")}
-          className={cn(inputBase, errors.primaryChallenge && inputError)}
+          {...register("message")}
+          className={cn(inputBase, errors.message && inputError)}
           placeholder="What's your biggest challenge right now? How can we help?"
         />
         <AnimatePresence>
-          {errors.primaryChallenge && (
+          {errors.message && (
             <motion.p
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               className="mt-1 text-sm text-red-600"
             >
-              {errors.primaryChallenge.message}
+              {errors.message.message}
             </motion.p>
           )}
         </AnimatePresence>
@@ -228,9 +255,9 @@ export function ContactForm() {
             exit={{ opacity: 0 }}
             className="rounded-lg border border-[#d4af37]/40 bg-[#d4af37]/10 p-4"
           >
-            <p className="text-sm font-medium text-[#0c0f14]">
+            <p className="text-sm font-medium text-[#0c0f14] dark:text-white">
               Thank you! Your message has been sent. We&apos;ll get back to you
-              soon.
+              within one business day.
             </p>
           </motion.div>
         )}
@@ -239,9 +266,9 @@ export function ContactForm() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="rounded-lg border border-red-200 bg-red-50 p-4"
+            className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-900/40 dark:bg-red-950/40"
           >
-            <p className="text-sm font-medium text-red-800">
+            <p className="text-sm font-medium text-red-800 dark:text-red-300">
               Something went wrong. Please try again or contact us directly.
             </p>
           </motion.div>
@@ -253,7 +280,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="w-full sm:w-auto"
       >
-        {isSubmitting ? "Sending..." : "Book My Strategy Call"}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
     </motion.form>
   );
